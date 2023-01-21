@@ -1,9 +1,9 @@
 import "./Dashboard.css";
 
 import UploadContactList from "../UploadContactList/UploadContactList";
-import DataBaseContext, {
-  DataBaseContextProvider,
-} from "../../utility/contexts/DataBaseContext";
+import { DataBaseContextProvider } from "../../utility/contexts/DataBaseContext";
+
+import { XlxsToObjContextProvider } from "../../utility/contexts/XlxsToObjContext";
 
 import { auth } from "../../services/firebase.js";
 
@@ -18,7 +18,9 @@ export default function Dashboard({ user }) {
       </header>
       <main>
         <DataBaseContextProvider userID={user.uid}>
-          <UploadContactList />
+          <XlxsToObjContextProvider>
+            <UploadContactList />
+          </XlxsToObjContextProvider>
         </DataBaseContextProvider>
       </main>
     </div>

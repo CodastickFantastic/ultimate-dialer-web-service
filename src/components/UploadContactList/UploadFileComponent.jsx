@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import XlxsToObjContext from "../../utility/contexts/XlxsToObjContext";
 
 export default function UploadFileComponent() {
-  let uploadedFile; // Variable for XML to JSON conversion
+  const { setUploadedFile } = useContext(XlxsToObjContext);
 
   // Drop File Handling
   const [dragActive, setDragActive] = useState(false);
@@ -23,12 +24,16 @@ export default function UploadFileComponent() {
     e.stopPropagation();
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      // Handling Transformation XML to Object
-      uploadedFile = e.dataTransfer.files[0]
-      console.log(uploadedFile)
-      console.log(e.dataTransfer.files[0].name);
-      setUploadedFileName(e.dataTransfer.files[0].name);
-      // Write here file handling !!!!!!!!!!!!!!!!!!!!!!!!
+      // Handling Transformation XLXS to Object
+      setUploadedFile(e.dataTransfer.files[0]);
+      if (
+        e.dataTransfer.files[0].type ===
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ) {
+        setUploadedFileName(e.dataTransfer.files[0].name);
+      } else {
+        setUploadedFileName("Invalid File Type, download example file.");
+      }
     }
   }
 
@@ -36,9 +41,16 @@ export default function UploadFileComponent() {
     e.preventDefault();
     console.log(e.target.files);
     if (e.target.files && e.target.files[0]) {
-      console.log(e.target.files[0].name);
-      setUploadedFileName(e.target.files[0].name);
-      // Write here file handling !!!!!!!!!!!!!!!!!!!!!!!!
+      // Handling Transformation XLXS to Object
+      setUploadedFile(e.target.files[0]);
+      if (
+        e.target.files[0].type ===
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ) {
+        setUploadedFileName(e.target.files[0].name);
+      } else {
+        setUploadedFileName("Invalid File Type, download example file.");
+      }
     }
   }
 
