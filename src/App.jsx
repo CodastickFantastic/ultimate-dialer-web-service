@@ -17,7 +17,9 @@ function App() {
   }, []);
 
   return (
-    <div className="appContainer">{user ? <Dashboard user={user} /> : <LogInScreen />}</div>
+    <div className="appContainer">
+      {user ? <Dashboard user={user} /> : <LogInScreen />}
+    </div>
   );
 }
 

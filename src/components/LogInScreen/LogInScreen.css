@@ -11,3 +11,12 @@
     border-radius: 5px;
     border: none;
 }
+
+.downloadApp{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.downloadApp a{
+    color: azure;
+}

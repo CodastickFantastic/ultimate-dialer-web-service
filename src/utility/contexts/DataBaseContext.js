@@ -1,19 +1,25 @@
 import { createContext, useState, useEffect } from "react";
 import { database } from "../../services/firebase";
 
-import { set, ref, onValue, update } from "firebase/database";
+import { get, ref, onValue, update } from "firebase/database";
 
 const DataBaseContext = createContext();
 
 export function DataBaseContextProvider(props) {
-  const userDataBase = ref(database, `users/${props.userID}`);
+  const [userDataBase, setUserDataBase] = useState("")
 
   function uploadContactList(databaseObj) {
     update(ref(database, `users/${props.userID}/contactLists`), databaseObj);
   }
 
+  useEffect(()=>{
+    onValue(ref(database, `users/${props.userID}/`), (response) => {
+      setUserDataBase(response.val())
+    } )
+  },[])
+
   return (
-    <DataBaseContext.Provider value={{uploadContactList}}>
+    <DataBaseContext.Provider value={{uploadContactList, userDataBase}}>
       {props.children}
     </DataBaseContext.Provider>
   );

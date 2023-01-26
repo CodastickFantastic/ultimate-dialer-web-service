@@ -5,6 +5,7 @@ import XlxsToObjContext from "../../utility/contexts/XlxsToObjContext";
 import DataBaseContext from "../../utility/contexts/DataBaseContext";
 
 export default function UploadContactList() {
+  const [fileSend, setFileSend] = useState(false);
   //Form Data Values
   const [formData, setFormData] = useState({
     listName: "",
@@ -48,6 +49,7 @@ export default function UploadContactList() {
         value = newFeedbackArr;
       }
       return {
+
         ...prevForm,
         [input]: value,
       };
@@ -78,26 +80,43 @@ export default function UploadContactList() {
       xlxsObject.forEach((contact) => {
         return (contactList[contact.name] = {
           number: contact.number.toString(),
-          mail: contact.mail,
-          feedback: contact.feedback,
-          note: contact.note,
+          mail: contact.mail ? contact.mail : "none",
+          feedback: contact.feedback ? contact.feedback : "none",
+          note: contact.note ? contact.note : "none",
+          called: contact.called ? contact.called : "none",
         });
       });
       // Form Firebase Object
+      let nowDate = new Date(); 
+      let date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
       let firebaseObj = {
         [formData.listName]: {
           callCounter: 0,
+          uploadDate: date,
           feedbackList: Object.assign({}, formData.feedbacks),
           contacts: contactList,
         },
       };
       // Upload Firebase Object to Database
+      console.log(firebaseObj);
       uploadContactList(firebaseObj);
+      setFileSend(true);
     }
+  }
+
+  //Resteart Form
+  function restartForm() {
+    setFormData({
+      listName: "",
+      feedbacks: ["Called", "Not answerd", "Calendar"],
+    })
+
+    setFileSend(false)
   }
 
   // Component Feedback Input
   function FeedbackInput(props) {
+    // Deleting Feedbacks Hanlder
     function deleteFeedback(e) {
       if (formData.feedbacks.length > 1) {
         setFormData((prevForm) => {
@@ -109,7 +128,6 @@ export default function UploadContactList() {
             feedbacks: newArr,
           };
         });
-
         setUpdateView((prevState) => prevState + 1);
       }
     }
@@ -135,40 +153,49 @@ export default function UploadContactList() {
   // Component Upload Contact List Form
   return (
     <section className="uploadContactListSection">
-      <h2>Add Contact List</h2>
-      <form onSubmit={onSubmitHandler}>
-        <label htmlFor="listName">List Name</label>
-        <input
-          type="text"
-          id="listName"
-          name="listName"
-          value={formData.listName}
-          onChange={handleChange}
-        />
-        <label>Set Feedback List</label>
-        {displayFeedback}
-        <img
-          className="addFeedback"
-          src={require("../../images/icons/plus.png")}
-          alt="+"
-          onClick={addFeedback}
-        />
-        <p>
-          To upload, first you need to <br />
-          <a href="../../images/icons/minus.png" download>
-            download example file
-          </a>
-          <br />
-          and fill it with your data.
-          <br />
-          <br />
-          Warning: <br />
-          Please note that every <br />
-          contact name must be unique!
-        </p>
-        <UploadFileComponent />
-        <button type="submit">Upload File</button>
-      </form>
+      {fileSend ? (
+        <>
+          <p>File Send Succesfull</p>
+          <button onClick={restartForm}>Load another file</button>
+        </>
+      ) : (
+        <>
+          <h2>Add Contact List</h2>
+          <form onSubmit={onSubmitHandler}>
+            <label htmlFor="listName">List Name</label>
+            <input
+              type="text"
+              id="listName"
+              name="listName"
+              value={formData.listName}
+              onChange={handleChange}
+            />
+            <label>Set Feedback List</label>
+            {displayFeedback}
+            <img
+              className="addFeedback"
+              src={require("../../images/icons/plus.png")}
+              alt="+"
+              onClick={addFeedback}
+            />
+            <p>
+              To upload, first you need to <br />
+              <a href="../../download/Contact List Structure.xlsx" download>
+                download example file
+              </a>
+              <br />
+              and fill it with your data.
+              <br />
+              <br />
+              <span className="warning">Warning;</span> <br />
+              Please note that every <br />
+              contact name must be unique!
+            </p>
+            <UploadFileComponent />
+            <button type="submit">Upload File</button>
+          </form>
+        </>
+      )}
     </section>
   );
 }

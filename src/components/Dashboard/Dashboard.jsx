@@ -1,6 +1,7 @@
 import "./Dashboard.css";
 
 import UploadContactList from "../UploadContactList/UploadContactList";
+import MyContactList from "../MyContactList/MyContactList"
 import { DataBaseContextProvider } from "../../utility/contexts/DataBaseContext";
 
 import { XlxsToObjContextProvider } from "../../utility/contexts/XlxsToObjContext";
@@ -8,7 +9,7 @@ import { XlxsToObjContextProvider } from "../../utility/contexts/XlxsToObjContex
 import { auth } from "../../services/firebase.js";
 
 export default function Dashboard({ user }) {
-  console.log(user);
+  // console.log(user);
   return (
     <div className="dashboardContainer">
       <header>
@@ -20,6 +21,9 @@ export default function Dashboard({ user }) {
         <DataBaseContextProvider userID={user.uid}>
           <XlxsToObjContextProvider>
             <UploadContactList />
+            <div className="dashboardRight">
+            <MyContactList />
+            </div>
           </XlxsToObjContextProvider>
         </DataBaseContextProvider>
       </main>

@@ -10,6 +10,10 @@ export default function LogInScreen() {
       <button className="loginBtn" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
+      <div className="downloadApp">
+        <p>Don't you have Android application to work with ?</p>
+        <a href="https://github.com/CodastickFantastic/ultimatedAutoDialerApp/releases/download/DialerApp/app-debug.apk">Download Ultimate Automated Dialer Beta</a>
+      </div>
     </div>
   );
 }
