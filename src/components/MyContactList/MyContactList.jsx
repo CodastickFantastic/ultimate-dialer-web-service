@@ -2,12 +2,14 @@ import "./MyContactList.css";
 import ContactListRow from "./ContactListRow";
 import { useContext, useEffect, useState } from "react";
 import DataBaseContext from "../../utility/contexts/DataBaseContext";
-import { remove } from "firebase/database";
-import { database } from "../../services/firebase";
+import DeleteConfirmation from "./DeleteConfirmation";
 
-function MyContactList() {
+function MyContactList(props) {
   const { userDataBase } = useContext(DataBaseContext);
   const [contactLists, setContactLists] = useState();
+  const [deleteConfirmation, setDeleteConfirmation] = useState({
+    status: false,
+  });
 
   useEffect(() => {
     if (userDataBase !== "") {
@@ -28,13 +30,26 @@ function MyContactList() {
     }
   }, [userDataBase]);
 
-  function deleteList(e){
-    console.log(e.target.parentNode.children[1].innerHTML)
-    
+  function deleteList(e) {
+    setDeleteConfirmation({
+      status: true,
+      listToDelete: e.target.parentNode.children[1].innerHTML,
+    });
+  }
+
+  function deleteAborted() {
+    setDeleteConfirmation({ status: false });
   }
 
   return (
     <section className="myContactList">
+      {deleteConfirmation.status && (
+        <DeleteConfirmation
+          listToDelete={deleteConfirmation.listToDelete}
+          deleteAborted={deleteAborted}
+          userID={props.userID}
+        />
+      )}
       <h2>My Contact Lists</h2>
       <table>
         <thead>

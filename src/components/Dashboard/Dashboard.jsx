@@ -22,7 +22,7 @@ export default function Dashboard({ user }) {
           <XlxsToObjContextProvider>
             <UploadContactList />
             <div className="dashboardRight">
-            <MyContactList />
+            <MyContactList userID={user.uid}/>
             </div>
           </XlxsToObjContextProvider>
         </DataBaseContextProvider>

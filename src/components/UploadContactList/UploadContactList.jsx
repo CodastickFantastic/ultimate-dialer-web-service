@@ -98,7 +98,6 @@ export default function UploadContactList() {
         },
       };
       // Upload Firebase Object to Database
-      console.log(firebaseObj);
       uploadContactList(firebaseObj);
       setFileSend(true);
     }
