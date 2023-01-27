@@ -11,4 +11,19 @@ header{
     display: flex;
 }
 
+.dashboardContainer header button{
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+    transition: 0.3s linear;
+}
+
+.dashboardContainer header button:hover{
+    transform: scale(1.1);
+    transition: 0.1s linear;
+}
+
+
+
 

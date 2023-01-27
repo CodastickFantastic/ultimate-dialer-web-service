@@ -1,6 +1,6 @@
 export default function ContactListRow(props) {
   return (
-    <tr>
+    <tr onClick={props.onClick}>
       <td>{props.date}</td>
       <td>{props.listName}</td>
       <td>{props.doneCalls}</td>

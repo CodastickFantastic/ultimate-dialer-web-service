@@ -1,0 +1,26 @@
+.showListResult{
+    margin-left: 20px;
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 650px;
+    height: 310px;
+}
+
+.showListResult h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.showListResult table{
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
