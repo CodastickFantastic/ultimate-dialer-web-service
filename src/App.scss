@@ -1,0 +1,23 @@
+// Color Pallet
+$bacground-color: #0a0a0a;
+$div-color: #181818;
+$hover-color: #2f66ee;
+$important-color: #b62323;
+$basic-text: #ffffff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body #root {
+  background-color: $bacground-color;
+  width: 100%;
+  color: white;
+  display: flex;
+}
+
+main {
+  width: 100%;
+}

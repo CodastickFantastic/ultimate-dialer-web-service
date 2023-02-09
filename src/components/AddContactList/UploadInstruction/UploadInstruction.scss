@@ -1,0 +1,49 @@
+@use "../../../App";
+
+.uploadingInstruction {
+    display: flex;
+    justify-content: center;
+
+    .uploadStep {
+        width: 30%;
+        max-width: 350px;
+        min-width: 260px;
+        padding: 10px;
+        margin: 0 10px;
+        background-color: App.$div-color;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: App.$hover-color;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        p:nth-child(3) {
+            color: App.$important-color;
+        }
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+        }
+        a:hover {
+            background-color: rgb(86, 86, 86);
+            border-radius: 10px;
+        }
+        img {
+            width: 75px;
+        }
+        ul {
+            padding-left: 30px;
+        }
+    }
+}

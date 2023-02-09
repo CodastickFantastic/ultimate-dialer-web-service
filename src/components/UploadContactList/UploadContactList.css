@@ -17,16 +17,16 @@
   align-items: center;
 }
 
-.uploadContactListSection label {
+/* .uploadContactListSection label {
   text-align: center;
   margin: 5px 0;
   font-size: 1.1rem;
   font-weight: 600;
-}
+} */
 
 .uploadContactListSection input:nth-child(2) {
-    width: 250px;
-  }
+  width: 250px;
+}
 
 .uploadContactListSection input {
   border-radius: 20px;
@@ -55,10 +55,10 @@
   width: 25px;
 }
 
-.uploadContactListSection > form > .feedbackInput:hover > input {
+/* .uploadContactListSection > form > .feedbackInput:hover > input {
   width: 85%;
   transition: 0.4s;
-}
+} */
 
 .uploadContactListSection .addFeedback {
   width: 25px;
@@ -93,21 +93,21 @@
   word-break: break-all;
 }
 
-.uploadContactListSection .customFileUpload.drag-active{
-    background: #eeeeee;
+.uploadContactListSection .customFileUpload.drag-active {
+  background: #eeeeee;
 }
 
-.uploadContactListSection button{
+.uploadContactListSection button {
   padding: 0.5em 1em;
   border-radius: 20px;
   border: none;
   margin-top: 10px;
 }
 
-.uploadContactListSection button:hover{
+.uploadContactListSection button:hover {
   transform: scale(1.2);
 }
 
-.uploadContactListSection .warning{
+.uploadContactListSection .warning {
   color: red;
 }

@@ -1,0 +1,78 @@
+@use "../../App";
+
+.sideNavigation {
+  background-color: App.$div-color;
+  width: 220px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .logo {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 20px;
+  }
+
+  nav {
+    width: 100%;
+    ul {
+      list-style: none;
+      li {
+        a {
+          margin: 0 10px 0 10px;
+          padding: 0.25em 0;
+          font-size: 1rem;
+          color: App.$basic-text;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          img {
+            width: 36px;
+            margin-right: 5px;
+          }
+        }
+      }
+      li:hover {
+        background-color: App.$hover-color;
+      }
+      li.active {
+        background-color: App.$hover-color;
+      }
+    }
+  }
+
+  .currentUser {
+    width: 90%;
+    margin: auto auto 0;
+    padding: 0.4em;
+    border: 2px solid App.$bacground-color;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    img {
+      width: 20%;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    p {
+      font-size: 0.9rem;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  button {
+    width: 50%;
+    margin: 10px auto 50px;
+    padding: 0.2em 1em;
+    border-radius: 20px;
+    border: none;
+    background: App.$important-color;
+  }
+  button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}

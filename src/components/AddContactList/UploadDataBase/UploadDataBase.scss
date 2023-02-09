@@ -1,0 +1,103 @@
+@use "../../../App.scss";
+.uploadDataBase {
+  display: flex;
+  justify-content: center;
+
+  .uploadDataBaseForm {
+    background-color: App.$div-color;
+    width: 94%;
+    min-width: 820px;
+    max-width: 1090px;
+    height: 350px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+
+    .formLeft,
+    .formRight {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      label {
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      input:nth-child(2) {
+        width: 250px;
+      }
+
+      input {
+        border-radius: 20px;
+        border: none;
+        height: 25px;
+        width: 150px;
+        margin: 2px 0;
+        text-align: center;
+      }
+
+      .feedbackInput {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .deleteFeedback {
+        width: 0px;
+        margin-left: 5px;
+        transition: 0.4s;
+        cursor: pointer;
+      }
+
+      .feedbackInput:hover > .deleteFeedback {
+        width: 25px;
+      }
+
+      .addFeedback {
+        width: 25px;
+        margin: 10px auto;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+
+      .addFeedback:hover {
+        transform: scale(1.3);
+        transition: 0.2s;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .customFileUpload {
+        width: 80%;
+        height: 90%;
+        margin: 20px;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid white;
+        word-break: break-all;
+      }
+
+      .customFileUpload.drag-active {
+        background: #7d7d7d;
+      }
+
+      button {
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        border: none;
+        margin-top: 10px;
+      }
+    }
+  }
+}
