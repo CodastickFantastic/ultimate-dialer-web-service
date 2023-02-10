@@ -6,20 +6,32 @@ import { get, ref, onValue, update } from "firebase/database";
 const DataBaseContext = createContext();
 
 export function DataBaseContextProvider(props) {
-  const [userDataBase, setUserDataBase] = useState("")
+  const [userDataBase, setUserDataBase] = useState("");
 
-  function uploadContactList(databaseObj) {
-    update(ref(database, `users/${props.userID}/contactLists`), databaseObj);
+  // Always get present version of Database
+  useEffect(() => {
+    onValue(ref(database, `users/${props.user.uid}/`), (response) => {
+      setUserDataBase(response.val());
+    });
+  }, []);
+
+  //If there is no stats section in database - create it
+  if (userDataBase !== "") {
+    if (userDataBase.stats === undefined) {
+      let statsObj = {
+        stats: { totalAnsweredCalls: 0, totalDoneCalls: 0, totalLeads: 0 },
+      };
+      update(ref(database, `users/${props.user.uid}`), statsObj);
+    }
   }
 
-  useEffect(()=>{
-    onValue(ref(database, `users/${props.userID}/`), (response) => {
-      setUserDataBase(response.val())
-    } )
-  },[])
+  // Upload Contact List Function
+  function uploadContactList(databaseObj) {
+    update(ref(database, `users/${props.user.uid}/contactLists`), databaseObj);
+  }
 
   return (
-    <DataBaseContext.Provider value={{uploadContactList, userDataBase}}>
+    <DataBaseContext.Provider value={{ uploadContactList, userDataBase }}>
       {props.children}
     </DataBaseContext.Provider>
   );

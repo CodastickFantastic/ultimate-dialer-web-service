@@ -1,0 +1,56 @@
+@use "../../../Templates";
+
+.helloWidget {
+  display: flex;
+  align-items: center;
+  background-color: Templates.$div-dark;
+  width: 60%;
+  max-width: 550px;
+  height: 140px;
+  padding: 10px 5px 10px 20px;
+  border-radius: 8px;
+  .helloImage {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .img1 {
+      width: 116px;
+      height: 116px;
+      animation: rotation 22s infinite linear;
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .img2 {
+      top: 8px;
+      left: 8px;
+    }
+
+    .img3{
+      top: 20px;
+      left: 20px;
+      width: 75px;
+    }
+  }
+
+  .helloText {
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+      margin-left: 1px;
+    }
+  }
+}

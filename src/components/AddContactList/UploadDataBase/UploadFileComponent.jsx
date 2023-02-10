@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import XlxsToObjContext from "../../utility/contexts/XlxsToObjContext";
+import XlxsToObjContext from "../XlxsToObjContext";
 
 export default function UploadFileComponent() {
   const { setUploadedFile } = useContext(XlxsToObjContext);

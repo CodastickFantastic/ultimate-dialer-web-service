@@ -10,11 +10,7 @@ export default function UploadDataBase() {
   //Form Data Values
   const [formData, setFormData] = useState({
     listName: "",
-    feedbacks: [
-      ["Called", "called"],
-      ["No answer", "no answer"],
-      ["Calendar", "lead"],
-    ],
+    feedbacks: ["Called", "Not answerd", "Calendar"],
   });
 
   //Handle Form Changes
@@ -26,13 +22,8 @@ export default function UploadDataBase() {
     setFormData((prevForm) => {
       if (input === "feedbacks") {
         let newFeedbackArr = prevForm.feedbacks;
-        if (event.target.type === "radio") {
-          newFeedbackArr[name.slice(12, 13)][1] = value;
-        } else {
-          newFeedbackArr[name.slice(8, 10)][0] = value;
-        }
+        newFeedbackArr[name.slice(8, 10)] = value;
         value = newFeedbackArr;
-        console.log(value);
       }
       return {
         ...prevForm,
@@ -86,39 +77,21 @@ export default function UploadDataBase() {
           <input
             type="text"
             name={`feedback${props.id}`}
-            value={formData.feedbacks[props.id][0]}
+            value={formData.feedbacks[props.id]}
             onChange={handleChange}
           />
           <div className="feedbackInputType">
             <div>
-              <input
-                type="radio"
-                name={`feedbackType${props.id}`}
-                value="lead"
-                checked={formData.feedbacks[props.id][1] === "lead"}
-                onChange={handleChange}
-              />
+              <input type="radio" name={`feedbackType${props.id}`} />
               <label>Lead</label>
             </div>
             <div>
-              <input
-                type="radio"
-                name={`feedbackType${props.id}`}
-                value="called"
-                checked={formData.feedbacks[props.id][1] === "called"}
-                onChange={handleChange}
-              />
+              <input type="radio" name={`feedbackType${props.id}`} />
               <label>Called</label>
             </div>
             <div>
-              <input
-                type="radio"
-                name={`feedbackType${props.id}`}
-                value="no answer"
-                checked={formData.feedbacks[props.id][1] === "no answer"}
-                onChange={handleChange}
-              />
-              <label>No Answer</label>
+              <input type="radio" name={`feedbackType${props.id}`} />
+              <label>No Answered</label>
             </div>
           </div>
         </div>
@@ -138,7 +111,7 @@ export default function UploadDataBase() {
     if (formData.feedbacks.length < 6) {
       setFormData((prevForm) => {
         let feedbackList = prevForm.feedbacks;
-        feedbackList.push(["Your feedback...", "no answer"]);
+        feedbackList.push("");
         return {
           ...prevForm,
           feedbacks: feedbackList,
@@ -185,8 +158,9 @@ export default function UploadDataBase() {
         },
       };
       // Upload Firebase Object to Database
-      uploadContactList(firebaseObj);
-      setFileSend(true);
+      console.log(firebaseObj)
+      // uploadContactList(firebaseObj);
+      // setFileSend(true);
     }
   }
 

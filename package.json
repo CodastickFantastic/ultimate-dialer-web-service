@@ -1,7 +1,7 @@
 {
   "name": "ultimate-dialer-web-service",
   "version": "0.1.0",
-  "homepage": "https://codastickfantastic.github.io/ultimate-dialer-web-service",
+  "homepage": "https://codastickfantastic.github.io/ultimate-dialer-web-service/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

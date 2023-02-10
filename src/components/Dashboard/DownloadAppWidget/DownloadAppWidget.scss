@@ -1,0 +1,56 @@
+@use "../../../Templates";
+
+.downloadAppWidget {
+  background-color: Templates.$div-dark;
+  width: 30%;
+  max-width: 300px;
+  height: 140px;
+  padding: 10px;
+  border-radius: 8px;
+  h2 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  p {
+    text-align: center;
+  }
+  a {
+    position: relative;
+    padding: 5px 5px 0px;
+    border-radius: 8px;
+    transition: 0.4s;
+    p {
+      position: absolute;
+      left: 0;
+      top: 30%;
+      color: white;
+      opacity: 0;
+    }
+  }
+  .system {
+    width: 100%;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    img {
+      width: 65px;
+      height: 74px;
+    }
+
+    .android:hover {
+      background-color: Templates.$android-blue;
+    }
+
+    .apple:hover {
+      background-color: #000000;
+      p {
+        opacity: 1;
+      }
+      img {
+        opacity: 0;
+      }
+    }
+  }
+}

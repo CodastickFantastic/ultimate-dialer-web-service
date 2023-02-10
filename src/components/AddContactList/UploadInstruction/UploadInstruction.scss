@@ -1,4 +1,4 @@
-@use "../../../App";
+@use "../../../Templates";
 
 .uploadingInstruction {
     display: flex;
@@ -10,7 +10,7 @@
         min-width: 260px;
         padding: 10px;
         margin: 0 10px;
-        background-color: App.$div-color;
+        background-color: Templates.$div-dark;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -18,13 +18,13 @@
         h2 {
             margin-top: 10px;
             margin-bottom: 10px;
-            color: App.$hover-color;
+            color: Templates.$blue;
         }
         p {
             margin-bottom: 10px;
         }
         p:nth-child(3) {
-            color: App.$important-color;
+            color: Templates.$red;
         }
         a {
             display: flex;

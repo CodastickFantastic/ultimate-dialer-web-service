@@ -1,9 +1,7 @@
-import UploadInstruction from "../../components/AddContactList/UploadInstruction/UploadInstruction";
-import UploadDataBase from "../../components/AddContactList/UploadDataBase/UploadDataBase";
+import UploadInstruction from "../components/AddContactList/UploadInstruction/UploadInstruction";
+import UploadDataBase from "../components/AddContactList/UploadDataBase/UploadDataBase";
 
-import { XlxsToObjContextProvider } from "../../utility/contexts/XlxsToObjContext";
-
-import "./AddContactList.scss";
+import { XlxsToObjContextProvider } from "../components/AddContactList/XlxsToObjContext";
 
 export default function AddContactList() {
   return (

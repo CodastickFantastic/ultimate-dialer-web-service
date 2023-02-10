@@ -1,8 +1,9 @@
-@use "../../App";
+@use "../../Templates";
 
 .sideNavigation {
-  background-color: App.$div-color;
-  width: 220px;
+  background-color: Templates.$div-dark;
+  min-width: 180px;
+  width: 180px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,7 @@
           margin: 0 10px 0 10px;
           padding: 0.25em 0;
           font-size: 1rem;
-          color: App.$basic-text;
+          color: Templates.$basic-text;
           text-decoration: none;
           display: flex;
           align-items: center;
@@ -32,10 +33,10 @@
         }
       }
       li:hover {
-        background-color: App.$hover-color;
+        background-color: Templates.$blue;
       }
       li.active {
-        background-color: App.$hover-color;
+        background-color: Templates.$blue;
       }
     }
   }
@@ -44,7 +45,7 @@
     width: 90%;
     margin: auto auto 0;
     padding: 0.4em;
-    border: 2px solid App.$bacground-color;
+    border: 2px solid Templates.$bacground-dark;
     border-radius: 30px;
     display: flex;
     justify-content: space-evenly;
@@ -69,7 +70,7 @@
     padding: 0.2em 1em;
     border-radius: 20px;
     border: none;
-    background: App.$important-color;
+    background: Templates.$red;
   }
   button:hover {
     cursor: pointer;

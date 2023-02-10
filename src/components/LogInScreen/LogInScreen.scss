@@ -1,4 +1,4 @@
-@use "../../App";
+@use "../../Templates";
 
 .loginScreen {
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: App.$bacground-color;
+  background-color: Templates.$bacground-dark;
 
   img {
     width: 350px;
@@ -17,26 +17,26 @@
     width: 200px;
     margin-top: 26px;
     padding: 0.5em 1em;
-    background-color: #4285f4;
+    background-color: Templates.$android-blue;
     border-radius: 8px;
     border: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: Templates.$basic-text;
     font-weight: bolder;
     transition: 0.2s;
     img {
       width: 36px;
       padding: 5px;
-      background: white;
+      background: Templates.$bacground-light;
       border-radius: 8px;
       transition: 0.2s;
     }
   }
 
   .loginBtn:hover {
-    background-color: #34a853;
+    background-color: Templates.$android-green;
     transition: 0.2s;
     cursor: pointer;
     img {
@@ -49,7 +49,7 @@
     margin-top: 20px;
 
     .coloredText {
-      color: App.$hover-color;
+      color: Templates.$blue;
     }
 
     .downloadFor {
@@ -58,7 +58,7 @@
       justify-content: center;
 
       .downloadItem {
-        background-color: App.$div-color;
+        background-color: Templates.$div-dark;
         border-radius: 8px;
         margin: 10px;
         padding: 10px 20px;
@@ -68,10 +68,11 @@
           flex-direction: column;
           align-items: center;
           text-decoration: none;
-          color: white;
+          color: Templates.$basic-text;
           img {
-            width: 100px;
+            width: 80px;
             transition: 0.4s;
+            margin-bottom: 5px;
           }
         }
       }
@@ -88,7 +89,7 @@
       }
 
       .downloadItem.android:hover {
-        background-color: #4285f4;
+        background-color: Templates.$android-blue;
         img {
           transform: scale(1.1);
         }

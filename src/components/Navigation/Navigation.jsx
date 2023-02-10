@@ -41,7 +41,7 @@ export default function Navigation({ user }) {
               </Link>
             </li>
             <li>
-              <Link to="/add-contact-list">
+              <Link to="/add_contact_list">
                 <img
                   src={require("../../images/icons/add_list.png")}
                   alt="Add contact list"
@@ -50,7 +50,7 @@ export default function Navigation({ user }) {
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/contact_list">
                 <img
                   src={require("../../images/icons/list.png")}
                   alt="Go to contact list"
@@ -59,7 +59,7 @@ export default function Navigation({ user }) {
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/bulk_sms">
                 <img
                   src={require("../../images/icons/sms.png")}
                   alt="Go to bulk sms"
@@ -68,7 +68,7 @@ export default function Navigation({ user }) {
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/settings">
                 <img
                   src={require("../../images/icons/settings.png")}
                   alt="Go to settings"

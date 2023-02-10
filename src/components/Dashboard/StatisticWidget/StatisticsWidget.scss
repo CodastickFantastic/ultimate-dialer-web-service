@@ -1,0 +1,22 @@
+@use "../../../Templates";
+
+.statisticsWidget{
+    width: 29%;
+    height: 100px;
+    padding: 20px 10px;
+    max-width: 276.5px;
+    border-radius: 8px;
+    background-color: Templates.$div-dark;
+    text-align: center;
+    h2{
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    p{
+        font-size: 1.5rem;
+        color: Templates.$android-green;
+    }
+    .noStyle{
+        color: Templates.$basic-text;
+    }
+}

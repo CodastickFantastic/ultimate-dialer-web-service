@@ -1,14 +1,39 @@
-@use "../../../App.scss";
+@use "../../../Templates";
+
 .uploadDataBase {
   display: flex;
   justify-content: center;
 
+  .fileSentSuccess {
+    background-color: Templates.$div-dark;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    button {
+      padding: 8px 20px;
+      border-radius: 5px;
+      border: none;
+      font-weight: bolder;
+      background-color: Templates.$blue;
+      color: white;
+      transition: 0.4s;
+    }
+    button:hover {
+      background-color: Templates.$android-green;
+      cursor: pointer;
+    }
+  }
+
   .uploadDataBaseForm {
-    background-color: App.$div-color;
+    background-color: Templates.$div-dark;
     width: 94%;
     min-width: 820px;
     max-width: 1090px;
-    height: 350px;
+    height: 500px;
     margin: 0 10px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -24,8 +49,8 @@
 
       label {
         text-align: center;
-        margin: 5px 0;
-        font-size: 1.1rem;
+        margin: 15px 0;
+        font-size: 1.3rem;
         font-weight: 600;
       }
 
@@ -46,6 +71,26 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        .feedbackInputList{
+          text-align: center;
+          .feedbackInputType{
+            display: flex;
+            div{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              input{
+                width: 13px;
+
+              }
+              label{
+                font-size: 0.8rem;
+                margin: 0 5px;
+                text-align: left;
+              }
+            }
+          }
+        }
       }
 
       .deleteFeedback {
@@ -77,7 +122,7 @@
 
       .customFileUpload {
         width: 80%;
-        height: 90%;
+        height: 60%;
         margin: 20px;
         font-size: 0.9rem;
         display: flex;
@@ -96,7 +141,15 @@
         padding: 0.5em 1em;
         border-radius: 20px;
         border: none;
+        font-weight: bolder;
         margin-top: 10px;
+        transition: 0.4s;
+      }
+
+      button:hover{
+        background-color: Templates.$android-green;
+        color: white;
+        cursor: pointer;
       }
     }
   }
