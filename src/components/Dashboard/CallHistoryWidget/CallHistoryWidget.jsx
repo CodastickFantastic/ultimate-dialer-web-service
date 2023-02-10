@@ -1,12 +1,12 @@
 import "./CallHisotryWidget.scss";
 import DataBaseContext from "../../../utility/contexts/DataBaseContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function CallHistoryWidget() {
   const { userDataBase } = useContext(DataBaseContext);
   let allContacts = [];
   let date = new Date();
-  let daysToShow = [];
+  let dayToShow = [];
 
   // Function - Get all available contact into one array
   getAllContacts(userDataBase);
@@ -36,7 +36,7 @@ export default function CallHistoryWidget() {
     return contactArr[0].split("-")[0].trim() === date;
   }
 
-  //Function -  Get 4 last days in proper format and save it to daysToShow[]
+  //Function -  Get 4 last days in proper format and save it to dayToShow[]
   getCurrentDays();
   function getCurrentDays() {
     let months = {
@@ -65,33 +65,60 @@ export default function CallHistoryWidget() {
       let month = months[date.toUTCString().split(" ")[2]];
       let year = date.toUTCString().split(" ")[3];
 
-      daysToShow.push(`${day}/${month}/${year}`);
+      dayToShow.push(`${day}/${month}/${year}`);
     }
   }
 
-  //   let x = allContacts.filter((contact) =>
-  //     filterDate(contact, "05/January/2023")
-  //   );
-  console.log(daysToShow);
+  //Filtering all needed days
+
+  let day0 = allContacts.filter((contact) => filterDate(contact, dayToShow[0]));
+  let day1 = allContacts.filter((contact) => filterDate(contact, dayToShow[1]));
+  let day2 = allContacts.filter((contact) => filterDate(contact, dayToShow[2]));
+  let day3 = allContacts.filter((contact) => filterDate(contact, dayToShow[3]));
+
+  const [data, setData] = useState([day0, day1, day2, day3]);
+
+  console.log(data[0].length);
 
   return (
     <section className="callHistoryWidget">
-      <div className="day">
-        <h3>{daysToShow[3]}</h3>
-        <div className="chart">
-            <div>
-                
-            </div>
+      <div className="legend">
+        <div className="legendItem">
+          <div className="color color1"></div>
+          <p>Answered</p>
+        </div>
+        <div className="legendItem">
+          <div className="color color2"></div>
+          <p>Denied</p>
+        </div>
+        <div className="legendItem">
+          <div className="color color3"></div>
+          <p>Lead</p>
         </div>
       </div>
-      <div className="day">
-        <h3>{daysToShow[2]}</h3>
-      </div>
-      <div className="day">
-        <h3>{daysToShow[1]}</h3>
-      </div>
-      <div className="day">
-        <h3>{daysToShow[0]}</h3>
+      <div className="chart">
+        <div className="day">
+          {data[0].lenght === 0 ? (
+            <div className="candles"></div>
+          ) : (
+            <p>No calls recorded</p>
+          )}
+          <h3>{dayToShow[3]}</h3>
+        </div>
+        <div className="day">
+          <div className="candles">
+            <div className="candle answerStats" style={{ height: "30%" }}></div>
+            <div className="candle deniedStats" style={{ height: "60%" }}></div>
+            <div className="candle leadStats" style={{ height: "10%" }}></div>
+          </div>
+          <h3>{dayToShow[2]}</h3>
+        </div>
+        <div className="day">
+          <h3>{dayToShow[1]}</h3>
+        </div>
+        <div className="day">
+          <h3>{dayToShow[0]}</h3>
+        </div>
       </div>
     </section>
   );
