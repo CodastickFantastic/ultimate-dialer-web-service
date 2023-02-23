@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ultimate-dialer-web-service/static/css/main.116c527b.css",
-    "main.js": "/ultimate-dialer-web-service/static/js/main.839e3e79.js",
+    "main.js": "/ultimate-dialer-web-service/static/js/main.27494b09.js",
     "static/media/logo.png": "/ultimate-dialer-web-service/static/media/logo.b1e3b790a88a9f6d8307.png",
     "index.html": "/ultimate-dialer-web-service/index.html",
     "main.116c527b.css.map": "/ultimate-dialer-web-service/static/css/main.116c527b.css.map",
-    "main.839e3e79.js.map": "/ultimate-dialer-web-service/static/js/main.839e3e79.js.map"
+    "main.27494b09.js.map": "/ultimate-dialer-web-service/static/js/main.27494b09.js.map"
   },
   "entrypoints": [
     "static/css/main.116c527b.css",
-    "static/js/main.839e3e79.js"
+    "static/js/main.27494b09.js"
   ]
 }
