@@ -195,7 +195,11 @@ export default function UploadDataBase() {
   function restartForm() {
     setFormData({
       listName: "",
-      feedbacks: ["Called", "Not answerd", "Calendar"],
+      feedbacks: [
+        ["Called", "called"],
+        ["No answer", "no answer"],
+        ["Calendar", "lead"],
+      ],
     });
 
     setFileSend(false);
