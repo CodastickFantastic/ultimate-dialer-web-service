@@ -35,7 +35,7 @@ export default function CallHistoryWidget() {
       setDay2Stats(returnDayStats(day2));
       setDay3Stats(returnDayStats(day3));
     }
-  }, []);
+  }, [userDataBase]);
 
   // Function - Get all available contact into one array
   function getAllContacts(data) {
