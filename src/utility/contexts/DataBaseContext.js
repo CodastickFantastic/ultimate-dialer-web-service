@@ -16,7 +16,8 @@ export function DataBaseContextProvider(props) {
   }, []);
 
   //If there is no stats section in database - create it
-  if (userDataBase !== "") {
+  if (userDataBase !== null) {
+    console.log(userDataBase);
     if (userDataBase.stats === undefined) {
       let statsObj = {
         stats: { totalAnsweredCalls: 0, totalDoneCalls: 0, totalLeads: 0 },

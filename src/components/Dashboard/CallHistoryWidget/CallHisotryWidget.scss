@@ -63,25 +63,38 @@
         border-top: 1px dashed Templates.$bacground-dark;
       }
 
-      .candles{
+      .candles {
         height: 100%;
         width: 90%;
         margin: auto;
         display: flex;
         align-items: flex-end;
         justify-content: space-evenly;
-        .candle{
-            width: 25px;
+        .candle {
+          width: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .counter {
+            display: none;
+          }
+        }
+        .candle:hover {
+          cursor: pointer;
+          .counter {
+            display: block;
+            color: black;
+          }
         }
 
-        .answerStats{
-            background-color: Templates.$pink;
+        .answerStats {
+          background-color: Templates.$pink;
         }
-        .deniedStats{
-            background-color: Templates.$blue;
+        .deniedStats {
+          background-color: Templates.$blue;
         }
-        .leadStats{
-            background-color: Templates.$yellow;
+        .leadStats {
+          background-color: Templates.$yellow;
         }
       }
     }
