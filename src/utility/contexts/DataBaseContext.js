@@ -1,12 +1,14 @@
 import { createContext, useState, useEffect } from "react";
 import { database } from "../../services/firebase";
 
-import { get, ref, onValue, update } from "firebase/database";
+import { ref, onValue, update } from "firebase/database";
 
 const DataBaseContext = createContext();
 
 export function DataBaseContextProvider(props) {
-  const [userDataBase, setUserDataBase] = useState("");
+  const [userDataBase, setUserDataBase] = useState({
+    stats: { totalAnsweredCalls: 0, totalDoneCalls: 0, totalLeads: 0 },
+  });
 
   // Always get present version of Database
   useEffect(() => {
@@ -15,15 +17,12 @@ export function DataBaseContextProvider(props) {
     });
   }, []);
 
-  //If there is no stats section in database - create it
-  if (userDataBase !== null) {
-    console.log(userDataBase);
-    if (userDataBase.stats === undefined) {
-      let statsObj = {
-        stats: { totalAnsweredCalls: 0, totalDoneCalls: 0, totalLeads: 0 },
-      };
-      update(ref(database, `users/${props.user.uid}`), statsObj);
-    }
+  // If there is no stats section in database - create it
+  if (userDataBase === null) {
+    let statsObj = {
+      stats: { totalAnsweredCalls: 0, totalDoneCalls: 0, totalLeads: 0 },
+    };
+    update(ref(database, `users/${props.user.uid}`), statsObj);
   }
 
   // Upload Contact List Function
