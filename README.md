@@ -45,21 +45,11 @@ Right now user is allowed to make direct call from application withouth anny oth
 ![Automated Dialer Contact List](https://user-images.githubusercontent.com/118989184/222166283-2e94f5ca-0ea7-4fd6-8046-b0b08f56669f.png)
 
 ## Android App Screenshots
-### Sign In
 
+|Sign In|Dashboard|Call List|
+|--|--|--|
+|![Screenshot_1677680359](https://user-images.githubusercontent.com/118989184/222166900-b1e424ab-f649-4dc7-a792-326aba18c741.png)|![Screenshot_1677680422](https://user-images.githubusercontent.com/118989184/222167077-4d01d271-c22f-426a-8712-2c7a3959090d.png)|![Screenshot_1677680454](https://user-images.githubusercontent.com/118989184/222167210-cf632974-1de2-4f7e-9c92-9393b867caf1.png)|
 
-### Dashboard
-
-
-### Call List
-![Screenshot_1677680454](https://user-images.githubusercontent.com/118989184/222167210-cf632974-1de2-4f7e-9c92-9393b867caf1.png)
-
-<table>
-  <tbody>
-    <tr>![Screenshot_1677680359](https://user-images.githubusercontent.com/118989184/222166900-b1e424ab-f649-4dc7-a792-326aba18c741.png)</tr>
-    <tr>![Screenshot_1677680422](https://user-images.githubusercontent.com/118989184/222167077-4d01d271-c22f-426a-8712-2c7a3959090d.png)</tr>
-  </tbody>
-</table>
 
 ### To Do: 
 - Increase security checking of uploaded file 
