@@ -36,7 +36,7 @@ function App() {
                     path="/add_contact_list"
                     element={<AddContactList />}
                   />
-                  <Route path="/contact_list" element={<ContactList />} />
+                  <Route path="/contact_list" element={<ContactList user={user} />} />
                   <Route
                     path="/bulk_sms"
                     element={<UnderConstruction name="Bulk SMS" />}
